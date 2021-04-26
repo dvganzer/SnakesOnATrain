@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public  float speed = 10f;
+    public float speed = 10f;
     public float jumpVelocity = 9f;
     public Rigidbody2D rb;
     Vector2 move;
     public Animator animator;
-   public GameObject player;
+    public GameObject player;
     public GameObject ladder;
+    private BoxCollider2D boxcollider;
+    [SerializeField] private LayerMask layerMask;
    
     void Update()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        boxcollider = transform.GetComponent<BoxCollider2D>();
 
         move.x = Input.GetAxisRaw("Horizontal");
 
@@ -43,22 +46,24 @@ public class Movement : MonoBehaviour
             speed = 10f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
-            
             rb.velocity =  Vector2.up * jumpVelocity;
             Debug.Log("Jump");
-
         }
        
     }
     private void FixedUpdate()
     {
        rb.AddForce(move * speed);
-       
-
     }
 
+    private bool IsGrounded()
+    {
+        RaycastHit2D raycasthit2d = Physics2D.BoxCast(boxcollider.bounds.center, boxcollider.bounds.size, 0f, Vector2.down ,.1f, layerMask);
+        Debug.Log(raycasthit2d.collider);
+        return raycasthit2d.collider != null;
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject == ladder)
