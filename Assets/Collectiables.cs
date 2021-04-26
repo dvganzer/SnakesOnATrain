@@ -62,4 +62,4 @@ public class Collectiables : MonoBehaviour
         }
     }
 }
-}
+
