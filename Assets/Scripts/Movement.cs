@@ -5,11 +5,12 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public  float speed = 10f;
-    public float jumpVelocity = 5f;
+    public float jumpVelocity = 9f;
     public Rigidbody2D rb;
     Vector2 move;
     public Animator animator;
    public GameObject player;
+    public GameObject ladder;
    
     void Update()
     {
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour
             characterScale.x = 1;
         }
         transform.localScale = characterScale;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetBool("Shoot", true);
             speed = 0f;
@@ -56,6 +57,18 @@ public class Movement : MonoBehaviour
        rb.AddForce(move * speed);
        
 
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject == ladder)
+        {
+            jumpVelocity = 14f;
+        }
+        else if(collision.gameObject != ladder)
+        {
+            jumpVelocity = 9f;
+        }
     }
 
 

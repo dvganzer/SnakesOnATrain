@@ -48,6 +48,9 @@ TagManager:
   - name: Train
     uniqueID: 2434107089
     locked: 0
+  - name: Inside Train
+    uniqueID: 2431100009
+    locked: 0
   - name: Player
     uniqueID: 2378551437
     locked: 0

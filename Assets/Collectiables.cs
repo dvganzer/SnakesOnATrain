@@ -10,6 +10,7 @@ public class Collectiables : MonoBehaviour
     public GameObject Coin;
     public float Score;
     public Text playerScore;
+    public AudioSource collected;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject == Gem)
