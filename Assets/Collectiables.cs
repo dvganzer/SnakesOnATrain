@@ -5,28 +5,61 @@ using UnityEngine.UI;
 
 public class Collectiables : MonoBehaviour
 {
-    public GameObject Gem;
-    public GameObject Bag;
-    public GameObject Coin;
-    public float Score;
+    //public GameObject Gem;
+    //public GameObject Bag;
+    //public GameObject Coin;
+    //public GameObject Cash;
+    //public GameObject pocketWatch;
+    //public GameObject Snek;
+
+    public int Score;
     public Text playerScore;
     public AudioSource collected;
+
+    private void Start()
+    {
+        Score = 0;
+        
+    }
+
+    private void Update()
+    {
+        playerScore.text = ("Score: " + Score);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == Gem)
+        collected.Play();
+
+        if(collision.gameObject.name == "Gem")
         {
-            Score += 100;
-          //  playerScore.GetComponent<Text>.text = 
+            Score += Random.Range(75, 100); 
             Debug.Log(Score);
         }
-        if (collision.gameObject == Coin)
+        if (collision.gameObject.name == "Coin")
         {
-            Score += 10;
+            Score += Random.Range(10, 30); 
             Debug.Log(Score);
         }
-        if (collision.gameObject == Bag)
+        if (collision.gameObject.name == "Bag")
         {
-            Score += 50;
+            Score += Random.Range(35, 80); 
+            Debug.Log(Score);
+        }
+        if (collision.gameObject.name == "Cash")
+        {
+            Score += Random.Range(100, 200); 
+            Debug.Log(Score);
+        }
+        if (collision.gameObject.name == "Watch")
+        {
+            Score += Random.Range(90, 155); 
+            Debug.Log(Score);
+        }
+        if (collision.gameObject.name == "Snake")
+        {
+            Score -= Random.Range(5, 25); 
             Debug.Log(Score);
         }
     }
