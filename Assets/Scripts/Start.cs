@@ -7,6 +7,6 @@ public class Start : MonoBehaviour
 {
    public void OnPress()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
