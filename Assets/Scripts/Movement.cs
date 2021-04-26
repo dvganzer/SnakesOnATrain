@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public static float speed = 10f;
+    public  float speed = 10f;
+    public float jumpVelocity = 5f;
     public Rigidbody2D rb;
     Vector2 move;
     public Animator animator;
@@ -12,6 +13,8 @@ public class Movement : MonoBehaviour
    
     void Update()
     {
+        rb = transform.GetComponent<Rigidbody2D>();
+
         move.x = Input.GetAxisRaw("Horizontal");
 
         animator.SetFloat("Horizontal", move.x);
@@ -36,18 +39,23 @@ public class Movement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.A))
         {
             animator.SetBool("Shoot", false);
-            speed = 5f;
+            speed = 10f;
         }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            float jumpVelocity = 100f;
-            rb.velocity = Vector2.up * jumpVelocity;
+            
+            rb.velocity =  Vector2.up * jumpVelocity;
+            Debug.Log("Jump");
+
         }
+       
     }
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + move * speed * Time.fixedDeltaTime);
-   
+       rb.AddForce(move * speed);
+       
+
     }
 
 
