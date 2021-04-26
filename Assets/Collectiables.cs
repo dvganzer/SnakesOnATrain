@@ -16,7 +16,7 @@ public class Collectiables : MonoBehaviour
         if(collision.gameObject == Gem)
         {
             Score += 100;
-          //  playerScore.GetComponent<Text>.text = 
+          
             Debug.Log(Score);
         }
         if (collision.gameObject == Coin)
