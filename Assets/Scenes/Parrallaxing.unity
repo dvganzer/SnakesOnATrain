@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -957,6 +957,7 @@ MonoBehaviour:
   Score: 0
   playerScore: {fileID: 895868051}
   collected: {fileID: 0}
+  OOF: {fileID: 0}
 --- !u!1 &279774365
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,7 +4878,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10480994, y: -0.12847687}
+  m_Offset: {x: -0.017937064, y: -0.12847687}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4888,7 +4889,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.62962, y: 0.30304626}
+  m_Size: {x: 2.8751142, y: 0.30304626}
   m_EdgeRadius: 0
 --- !u!212 &1162233650
 SpriteRenderer:
