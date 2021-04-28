@@ -33,18 +33,21 @@ public class Collectiables : MonoBehaviour
             Score += Random.Range(75, 100);
             Debug.Log(Score);
             collected.Play();
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Coin")
         {
             Score += Random.Range(10, 30);
             Debug.Log(Score);
             collected.Play();
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Bag")
         {
             Score += Random.Range(35, 80);
             Debug.Log(Score);
             collected.Play();
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Cash")
         {
@@ -52,6 +55,7 @@ public class Collectiables : MonoBehaviour
             Score += 100;
             Score += Random.Range(100, 200);
             collected.Play();
+            Destroy(collision.gameObject);
 
             Debug.Log(Score);
         }
@@ -60,10 +64,11 @@ public class Collectiables : MonoBehaviour
             Score += Random.Range(90, 155);
             Debug.Log(Score);
             collected.Play();
+            Destroy(collision.gameObject);
         }
-        if (collision.gameObject.name == "Snake")
+        if (collision.gameObject.name == "slitherySnek")
         {
-            Score -= Random.Range(5, 25);
+            Score -= Random.Range(20, 50);
             Debug.Log(Score);
             OOF.Play();
         }
