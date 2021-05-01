@@ -31,21 +31,25 @@ public class Collectiables : MonoBehaviour
         {
             Score += Random.Range(75, 100);
             Debug.Log(Score);
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Coin")
         {
             Score += Random.Range(10, 30);
             Debug.Log(Score);
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Bag")
         {
             Score += Random.Range(35, 80);
+            Destroy(collision.gameObject);
             Debug.Log(Score);
         }
         if (collision.gameObject.name == "Cash")
         {
 
             Score += 100;
+            Destroy(collision.gameObject);
             Score += Random.Range(100, 200); 
 
             Debug.Log(Score);
@@ -53,6 +57,7 @@ public class Collectiables : MonoBehaviour
         if (collision.gameObject.name == "Watch")
         {
             Score += Random.Range(90, 155);
+            Destroy(collision.gameObject);
             Debug.Log(Score);
         }
         if (collision.gameObject.name == "Snake")
